@@ -5,7 +5,7 @@
  */
 package arithmetic;
 
-import java.util.Scanner;
+
 
 /** This class takes String input plus,minus,divide and times
  * from user and execute the arithmetic operation
@@ -16,13 +16,19 @@ import java.util.Scanner;
 public class ArithmeticBase 
 {
  public double x,y;
+ public enum operation{PLUS,MINUS,TIMES,DIVIDE;
+
+        private static Object ordinal(int i) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    }
+ public operation s;
     double calculate(double x, double y) 
         {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter arithmetic operation to Perform: ");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
+        
+        for (int i=0;i<4;i++){
+          s=operation.ordinal(i).values();
+        
             case "PLUS":
                 return x + y;
             case "MINUS":
@@ -33,7 +39,10 @@ public class ArithmeticBase
                 return x / y;
             default:
                 throw new AssertionError("Unknown operations " + this);
-        }
+        
     }
+        }
    
+
+
 }
